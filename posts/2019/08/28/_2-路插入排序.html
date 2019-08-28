@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据结构-2路插入排序 | 在路上</title>
+    <meta name="description" content="This is my blog">
+    <link rel="icon" href="/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.091665fe.css" as="style"><link rel="preload" href="/assets/js/app.8b0e447c.js" as="script"><link rel="preload" href="/assets/js/7.8ba6f4e3.js" as="script"><link rel="preload" href="/assets/js/22.167c3d10.js" as="script"><link rel="prefetch" href="/assets/js/1.503a5bcb.js"><link rel="prefetch" href="/assets/js/10.9a5a16fc.js"><link rel="prefetch" href="/assets/js/11.e70fe3c7.js"><link rel="prefetch" href="/assets/js/12.9520e2ac.js"><link rel="prefetch" href="/assets/js/13.6e464369.js"><link rel="prefetch" href="/assets/js/14.91896164.js"><link rel="prefetch" href="/assets/js/15.993d3957.js"><link rel="prefetch" href="/assets/js/16.37e9af2d.js"><link rel="prefetch" href="/assets/js/17.19f12466.js"><link rel="prefetch" href="/assets/js/18.dc201435.js"><link rel="prefetch" href="/assets/js/19.4e3bf216.js"><link rel="prefetch" href="/assets/js/20.d9cb63f5.js"><link rel="prefetch" href="/assets/js/21.1c2b6008.js"><link rel="prefetch" href="/assets/js/23.fb6d64cb.js"><link rel="prefetch" href="/assets/js/24.f7be52cc.js"><link rel="prefetch" href="/assets/js/25.2644e648.js"><link rel="prefetch" href="/assets/js/26.56fe8a6d.js"><link rel="prefetch" href="/assets/js/3.873670c7.js"><link rel="prefetch" href="/assets/js/4.43706a79.js"><link rel="prefetch" href="/assets/js/5.2213a49f.js"><link rel="prefetch" href="/assets/js/6.badf86c0.js"><link rel="prefetch" href="/assets/js/8.ed50fc3f.js"><link rel="prefetch" href="/assets/js/9.5b57c4cd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.091665fe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0539f1bd><div data-v-740e207b data-v-0539f1bd><nav class="navbar" data-v-740e207b><div class="container" data-v-740e207b><a href="/" class="router-link-active" data-v-740e207b><span class="navbar-site-name" data-v-740e207b>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-740e207b><svg class="icon" style="font-size:1.2em;" data-v-740e207b data-v-740e207b><title data-v-740e207b data-v-740e207b>menu</title><use xlink:href="#icon-menu" data-v-740e207b data-v-740e207b></use></svg></div> <div class="navbar-links" data-v-740e207b><a href="/" class="navbar-link" data-v-740e207b>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-740e207b>
+            文章
+          </a><a href="/products/" class="navbar-link" data-v-740e207b>
+            作品
+          </a><a href="/about/" class="navbar-link" data-v-740e207b>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-740e207b></div></div> <div class="banner" data-v-98d6aa8c data-v-0539f1bd data-v-0539f1bd><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0539f1bd>
+          数据结构-2路插入排序
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-08-28
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-08-28
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/08/28/%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-折半插入排序
+    </a> <!----></section></section> <article class="main-div"><div class="post-content content content__default"><h2 id="原理"><a href="#原理" aria-hidden="true" class="header-anchor">#</a> 原理</h2> <pre><code>定义一个同样大小数组来存方排序结果，并定义最小/最大值变量用来记录索引。
+当无序集合的元素小于最小值时插入左边也就是`索引减一`的位置，
+如果大于最大值则是在右边`索引加一`的位置,
+其它情况按折半/直接方式插入。
+</code></pre> <h2 id="原理图"><a href="#原理图" aria-hidden="true" class="header-anchor">#</a> 原理图</h2> <p>暂无</p> <h2 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h2> <div class="language-python extra-class"><pre class="language-python"><code>inputArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
+
+length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>inputArr<span class="token punctuation">)</span>
+sortArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">None</span><span class="token punctuation">]</span><span class="token operator">*</span>length
+minIndex<span class="token operator">=</span>maxIndex<span class="token operator">=</span><span class="token number">0</span>
+sortArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>inputArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;未排序集合:{0}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>inputArr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item<span class="token operator">=</span>inputArr<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+    <span class="token comment"># 小于最小值的放左边</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token operator">&lt;</span>sortArr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        minIndex<span class="token operator">=</span><span class="token punctuation">(</span>minIndex<span class="token operator">-</span><span class="token number">1</span><span class="token operator">+</span>length<span class="token punctuation">)</span><span class="token operator">%</span>length
+        sortArr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token operator">=</span>item
+        <span class="token keyword">continue</span>
+    <span class="token comment"># 大于最大值的放右边</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token operator">&gt;</span>sortArr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        maxIndex<span class="token operator">=</span><span class="token punctuation">(</span>maxIndex<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>length<span class="token punctuation">)</span><span class="token operator">%</span>length
+        sortArr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token operator">=</span>item
+        <span class="token keyword">continue</span>
+    <span class="token comment"># 大于最小值，小于最大值的情况需要移位插入</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>        
+        <span class="token comment"># 将最大数向后移动1位</span>
+        sortArr<span class="token punctuation">[</span><span class="token punctuation">(</span>maxIndex<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>length<span class="token punctuation">)</span><span class="token operator">%</span>length<span class="token punctuation">]</span><span class="token operator">=</span>sortArr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span>
+        <span class="token comment"># 再原来的最大数位置插入待插入的值</span>
+        sortArr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token operator">=</span>item
+        <span class="token comment"># 逐个向左比较，直到找到它的正确位置</span>
+        preIndex<span class="token operator">=</span>maxIndex
+        <span class="token keyword">while</span><span class="token punctuation">(</span>sortArr<span class="token punctuation">[</span>preIndex<span class="token punctuation">]</span><span class="token operator">&lt;=</span>sortArr<span class="token punctuation">[</span>preIndex<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sortArr<span class="token punctuation">[</span>preIndex<span class="token punctuation">]</span><span class="token punctuation">,</span>sortArr<span class="token punctuation">[</span>preIndex<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>sortArr<span class="token punctuation">[</span>preIndex<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>sortArr<span class="token punctuation">[</span>preIndex<span class="token punctuation">]</span>
+            preIndex<span class="token operator">=</span><span class="token punctuation">(</span>preIndex<span class="token operator">-</span><span class="token number">1</span><span class="token operator">+</span>length<span class="token punctuation">)</span><span class="token operator">%</span>length
+        maxIndex<span class="token operator">=</span><span class="token punctuation">(</span>maxIndex<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>length<span class="token punctuation">)</span><span class="token operator">%</span>length
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;已排序集合:{0}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>sortArr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-08-28
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-08-28
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/08/28/%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-折半插入排序
+    </a> <!----></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-03c72fc4 data-v-6e91a59a><div class="info-card-header" data-v-03c72fc4><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-03c72fc4></div> <div class="info-card-body" data-v-03c72fc4><section class="info-nickname" data-v-03c72fc4>
+      Net_win(guodf)
+    </section> <section class="info-desc" data-v-03c72fc4>逃离码农！</section> <section class="info-contact" data-v-03c72fc4><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-03c72fc4><section class="info-sns clearfix" data-v-03c72fc4><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-03c72fc4><span title="GitHub: guodf" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>GitHub: guodf</title><use xlink:href="#icon-github" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/08/28/_2-%E8%B7%AF%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html#原理">原理</a></li><li><a href="/posts/2019/08/28/_2-%E8%B7%AF%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html#原理图">原理图</a></li><li><a href="/posts/2019/08/28/_2-%E8%B7%AF%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html#实现">实现</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/08/28/_2-%E8%B7%AF%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-1114308c><p class="sns-links" data-v-1114308c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-1114308c><span title="GitHub: guodf" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-1114308c data-v-1114308c></use></svg></span></a></p> <p data-v-1114308c><span data-v-1114308c>Powered by </span> <a href="https://vuepress.vuejs.org" target="_blank" data-v-1114308c>
+      Vuepress
+    </a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.8b0e447c.js" defer></script><script src="/assets/js/7.8ba6f4e3.js" defer></script><script src="/assets/js/22.167c3d10.js" defer></script>
+  </body>
+</html>
