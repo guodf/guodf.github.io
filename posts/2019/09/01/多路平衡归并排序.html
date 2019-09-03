@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据结构-多了归并排序 | 在路上</title>
+    <meta name="description" content="This is my blog">
+    <link rel="icon" href="/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.319539b2.css" as="style"><link rel="preload" href="/assets/js/app.7c8d83a7.js" as="script"><link rel="preload" href="/assets/js/7.8ba6f4e3.js" as="script"><link rel="preload" href="/assets/js/27.81fdaf7f.js" as="script"><link rel="prefetch" href="/assets/js/1.503a5bcb.js"><link rel="prefetch" href="/assets/js/10.04574e51.js"><link rel="prefetch" href="/assets/js/11.116fd2bf.js"><link rel="prefetch" href="/assets/js/12.2cc35253.js"><link rel="prefetch" href="/assets/js/13.8707aecb.js"><link rel="prefetch" href="/assets/js/14.55df906b.js"><link rel="prefetch" href="/assets/js/15.e93618cc.js"><link rel="prefetch" href="/assets/js/16.fc062560.js"><link rel="prefetch" href="/assets/js/17.81234db5.js"><link rel="prefetch" href="/assets/js/18.ad567a6e.js"><link rel="prefetch" href="/assets/js/19.0ba5db5d.js"><link rel="prefetch" href="/assets/js/20.ea4cbbde.js"><link rel="prefetch" href="/assets/js/21.302ef644.js"><link rel="prefetch" href="/assets/js/22.311e01d5.js"><link rel="prefetch" href="/assets/js/23.3d7d1405.js"><link rel="prefetch" href="/assets/js/24.eb5e0d24.js"><link rel="prefetch" href="/assets/js/25.d8d0814d.js"><link rel="prefetch" href="/assets/js/26.2fcab5c5.js"><link rel="prefetch" href="/assets/js/28.8df37b9d.js"><link rel="prefetch" href="/assets/js/29.8bd36b66.js"><link rel="prefetch" href="/assets/js/3.873670c7.js"><link rel="prefetch" href="/assets/js/30.30eef935.js"><link rel="prefetch" href="/assets/js/31.68c36268.js"><link rel="prefetch" href="/assets/js/32.d195b79a.js"><link rel="prefetch" href="/assets/js/33.856c8049.js"><link rel="prefetch" href="/assets/js/34.fdf39eb5.js"><link rel="prefetch" href="/assets/js/35.73c562dd.js"><link rel="prefetch" href="/assets/js/36.aacb822d.js"><link rel="prefetch" href="/assets/js/37.4e0b3107.js"><link rel="prefetch" href="/assets/js/38.bfc25f41.js"><link rel="prefetch" href="/assets/js/4.1218f835.js"><link rel="prefetch" href="/assets/js/5.339b6206.js"><link rel="prefetch" href="/assets/js/6.8e83ff4c.js"><link rel="prefetch" href="/assets/js/8.e22b6c3d.js"><link rel="prefetch" href="/assets/js/9.5b57c4cd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.319539b2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0539f1bd><div data-v-740e207b data-v-0539f1bd><nav class="navbar" data-v-740e207b><div class="container" data-v-740e207b><a href="/" class="router-link-active" data-v-740e207b><span class="navbar-site-name" data-v-740e207b>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-740e207b><svg class="icon" style="font-size:1.2em;" data-v-740e207b data-v-740e207b><title data-v-740e207b data-v-740e207b>menu</title><use xlink:href="#icon-menu" data-v-740e207b data-v-740e207b></use></svg></div> <div class="navbar-links" data-v-740e207b><a href="/" class="navbar-link" data-v-740e207b>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-740e207b>
+            文章
+          </a><a href="/products/" class="navbar-link" data-v-740e207b>
+            作品
+          </a><a href="/about/" class="navbar-link" data-v-740e207b>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-740e207b></div></div> <div class="banner" data-v-98d6aa8c data-v-0539f1bd data-v-0539f1bd><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0539f1bd>
+          数据结构-多了归并排序
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-09-01
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-03
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/08/31/%E6%A0%91%E5%BD%A2%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-树形选择排序（锦标赛排序）
+    </a> <!----></section></section> <article class="main-div"><div class="post-content content content__default"><h2 id="多路平衡归并排序（胜者树、败者树）"><a href="#多路平衡归并排序（胜者树、败者树）" aria-hidden="true" class="header-anchor">#</a> 多路平衡归并排序（胜者树、败者树）</h2> <pre><code>多路归并排序用作大数据集合的排序，通常因为内存资源不足，只能分段排序。
+多路归并通常结合二叉树进行排序即败者树与胜者树。
+</code></pre> <p><strong>胜者树：</strong> 每次筛选最小值作为根结点</p> <p><strong>败者树：</strong> 每次筛选最大值作为根节点</p> <h3 id="原理"><a href="#原理" aria-hidden="true" class="header-anchor">#</a> 原理</h3> <pre><code>1. 将无序数组分割成多个无序数组，分割成N个就是N路排序
+2. 取每个无序数组的第一个元素两两排序，选取最小值或最大值，同附近的两两排序结果再次比较，直到选出最小值
+3. 将最小值放在有序集合中，并将原最小值的位置替换为该无序数组段的下一个元素
+4. 重复2-3步骤，直到全部排序完成
+</code></pre> <h3 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h3> <div class="language-python extra-class"><pre class="language-python"><code>
+</code></pre></div></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-09-01
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-03
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/08/31/%E6%A0%91%E5%BD%A2%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-树形选择排序（锦标赛排序）
+    </a> <!----></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-03c72fc4 data-v-6e91a59a><div class="info-card-header" data-v-03c72fc4><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-03c72fc4></div> <div class="info-card-body" data-v-03c72fc4><section class="info-nickname" data-v-03c72fc4>
+      Net_win(guodf)
+    </section> <section class="info-desc" data-v-03c72fc4>逃离码农！</section> <section class="info-contact" data-v-03c72fc4><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-03c72fc4><section class="info-sns clearfix" data-v-03c72fc4><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-03c72fc4><span title="GitHub: guodf" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>GitHub: guodf</title><use xlink:href="#icon-github" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/09/01/%E5%A4%9A%E8%B7%AF%E5%B9%B3%E8%A1%A1%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#多路平衡归并排序（胜者树、败者树）">多路平衡归并排序（胜者树、败者树）</a><ul><li><a href="/posts/2019/09/01/%E5%A4%9A%E8%B7%AF%E5%B9%B3%E8%A1%A1%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#原理">原理</a></li><li><a href="/posts/2019/09/01/%E5%A4%9A%E8%B7%AF%E5%B9%B3%E8%A1%A1%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#实现">实现</a></li></ul></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/09/01/%E5%A4%9A%E8%B7%AF%E5%B9%B3%E8%A1%A1%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-1114308c><p class="sns-links" data-v-1114308c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-1114308c><span title="GitHub: guodf" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-1114308c data-v-1114308c></use></svg></span></a></p> <p data-v-1114308c><span data-v-1114308c>Powered by </span> <a href="https://vuepress.vuejs.org" target="_blank" data-v-1114308c>
+      Vuepress
+    </a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.7c8d83a7.js" defer></script><script src="/assets/js/7.8ba6f4e3.js" defer></script><script src="/assets/js/27.81fdaf7f.js" defer></script>
+  </body>
+</html>
