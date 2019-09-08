@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>dart socket编程 | 在路上</title>
+    <meta name="description" content="This is my blog">
+    <link rel="icon" href="/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.104c48a5.css" as="style"><link rel="preload" href="/assets/js/app.b6e48ec6.js" as="script"><link rel="preload" href="/assets/js/6.8bc1f75d.js" as="script"><link rel="preload" href="/assets/js/15.b5d82979.js" as="script"><link rel="prefetch" href="/assets/js/1.f3f91acb.js"><link rel="prefetch" href="/assets/js/10.bb1fb140.js"><link rel="prefetch" href="/assets/js/11.2acf4a86.js"><link rel="prefetch" href="/assets/js/12.0e7adcaa.js"><link rel="prefetch" href="/assets/js/13.48a6d88c.js"><link rel="prefetch" href="/assets/js/14.1e1dac12.js"><link rel="prefetch" href="/assets/js/16.e287faa5.js"><link rel="prefetch" href="/assets/js/17.0c118f3e.js"><link rel="prefetch" href="/assets/js/18.d96caf52.js"><link rel="prefetch" href="/assets/js/19.e7a0b86f.js"><link rel="prefetch" href="/assets/js/20.654031da.js"><link rel="prefetch" href="/assets/js/21.2f553eae.js"><link rel="prefetch" href="/assets/js/22.ddc12d5f.js"><link rel="prefetch" href="/assets/js/23.3e275fde.js"><link rel="prefetch" href="/assets/js/24.cb6dca6d.js"><link rel="prefetch" href="/assets/js/25.35505196.js"><link rel="prefetch" href="/assets/js/26.46884d4b.js"><link rel="prefetch" href="/assets/js/27.7a818840.js"><link rel="prefetch" href="/assets/js/28.b2ae9daf.js"><link rel="prefetch" href="/assets/js/29.6a203380.js"><link rel="prefetch" href="/assets/js/3.673372f9.js"><link rel="prefetch" href="/assets/js/30.2434fa29.js"><link rel="prefetch" href="/assets/js/31.b3a10f06.js"><link rel="prefetch" href="/assets/js/32.ea484387.js"><link rel="prefetch" href="/assets/js/33.29cba0d3.js"><link rel="prefetch" href="/assets/js/34.bd1e2d58.js"><link rel="prefetch" href="/assets/js/35.7e9729e0.js"><link rel="prefetch" href="/assets/js/36.877399f6.js"><link rel="prefetch" href="/assets/js/37.84701082.js"><link rel="prefetch" href="/assets/js/38.b5bd6e0b.js"><link rel="prefetch" href="/assets/js/39.c0008e45.js"><link rel="prefetch" href="/assets/js/4.42a5eb55.js"><link rel="prefetch" href="/assets/js/40.38cfd07f.js"><link rel="prefetch" href="/assets/js/41.90835f5b.js"><link rel="prefetch" href="/assets/js/42.e284f8a6.js"><link rel="prefetch" href="/assets/js/43.4cd5e8ef.js"><link rel="prefetch" href="/assets/js/44.df741cb6.js"><link rel="prefetch" href="/assets/js/5.7eef391b.js"><link rel="prefetch" href="/assets/js/7.fb7ec356.js"><link rel="prefetch" href="/assets/js/8.2926f618.js"><link rel="prefetch" href="/assets/js/9.33393787.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.104c48a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0539f1bd><div data-v-740e207b data-v-0539f1bd><nav class="navbar" data-v-740e207b><div class="container" data-v-740e207b><a href="/" class="router-link-active" data-v-740e207b><span class="navbar-site-name" data-v-740e207b>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-740e207b><svg class="icon" style="font-size:1.2em;" data-v-740e207b data-v-740e207b><title data-v-740e207b data-v-740e207b>menu</title><use xlink:href="#icon-menu" data-v-740e207b data-v-740e207b></use></svg></div> <div class="navbar-links" data-v-740e207b><a href="/" class="navbar-link" data-v-740e207b>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-740e207b>
+            文章
+          </a><a href="/products/" class="navbar-link" data-v-740e207b>
+            作品
+          </a><a href="/about/" class="navbar-link" data-v-740e207b>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-740e207b></div></div> <div class="banner" data-v-98d6aa8c data-v-0539f1bd data-v-0539f1bd><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0539f1bd>
+          dart socket编程
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-09-08
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-08
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/09/04/%E6%9C%80%E4%BD%B3%E5%BD%92%E5%B9%B6%E6%A0%91.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-最佳归并树
+    </a> <a href="/posts/2019/09/08/tcp%E7%B2%98%E5%8C%85.html" class="post-link" data-v-4e23451f>
+      下一篇 : TCP粘包
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h2 id="dart-socket之tcp粘包"><a href="#dart-socket之tcp粘包" aria-hidden="true" class="header-anchor">#</a> Dart Socket之TCP粘包</h2> <h3 id="什么是tcp粘包"><a href="#什么是tcp粘包" aria-hidden="true" class="header-anchor">#</a> 什么是TCP粘包</h3> <p>​	<a href="/posts/2019/09/08/tcp粘包.html">socket编程-tcp粘包</a></p> <h3 id="dart中的socket"><a href="#dart中的socket" aria-hidden="true" class="header-anchor">#</a> dart中的socket</h3> <ul><li><p><strong>RawDatagramSocket</strong></p> <p>​	用于UDP通信</p></li></ul> <p>*　<strong>RawServerSocket、RawSocket、ServerSocket、Socket</strong></p> <pre><code>​	RawServerSocket，RawSocket：低级别的tcp服务提供类，可用于IP,ICMP协议		
+
+​	ServerSocket、Socket：用于TCP通信
+</code></pre> <ul><li><p><strong>RawSecureServerSocket，RawSecureSocket、SecureServerSocket、SecureSocket</strong></p> <p>​	支持SSL、TSL的安全通信</p></li></ul> <h4 id="dart之udp通信"><a href="#dart之udp通信" aria-hidden="true" class="header-anchor">#</a> dart之udp通信</h4> <pre><code>udp是无状态通信，通常用于服务发现。
+</code></pre> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//Server端</span>
+<span class="token keyword">var</span> udpSocket <span class="token operator">=</span> <span class="token keyword">await</span> RawDatagramSocket<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>InternetAddress<span class="token punctuation">.</span>anyIPv4<span class="token punctuation">,</span> <span class="token number">34343</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//这里要启用广播，重要</span>
+udpSocket<span class="token punctuation">.</span>broadcastEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">await</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> event <span class="token keyword">in</span> udpSocket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>RawSocketEvent<span class="token punctuation">.</span>read <span class="token operator">==</span> event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> data <span class="token operator">=</span> udpSocket<span class="token punctuation">.</span><span class="token function">receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">Utf8Codec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//Client端</span>
+<span class="token comment">//要创建一个udp实例，必须指定一个端口，即使仅为客户端，端口任意</span>
+<span class="token keyword">var</span> client <span class="token operator">=</span> <span class="token keyword">await</span> RawDatagramSocket<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>InternetAddress<span class="token punctuation">.</span>anyIPv4<span class="token punctuation">,</span> <span class="token number">33333</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+client<span class="token punctuation">.</span>broadcastEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> helloBytes <span class="token operator">=</span> utf8<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Future<span class="token punctuation">.</span><span class="token function">doWhile</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    udpSocket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>helloBytes<span class="token punctuation">,</span> <span class="token function">InternetAddress</span><span class="token punctuation">(</span><span class="token string">&quot;255.255.255.255&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">34343</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="dart之tcp通信"><a href="#dart之tcp通信" aria-hidden="true" class="header-anchor">#</a> dart之tcp通信</h3> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//Server端</span>
+<span class="token function">main</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> args<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> server <span class="token operator">=</span> <span class="token keyword">await</span> ServerSocket<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>InternetAddress<span class="token punctuation">.</span>loopbackIPv4<span class="token punctuation">,</span> <span class="token number">33333</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;start server....&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> socket <span class="token keyword">in</span> server<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">acceptSocket</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//接受Client连接</span>
+<span class="token function">acceptSocket</span><span class="token punctuation">(</span>Socket socket<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> data <span class="token keyword">in</span> socket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;server:$data&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">send</span><span class="token punctuation">(</span>socket<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">send</span><span class="token punctuation">(</span>Socket socket<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    socket<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> socket<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//Client端</span>
+<span class="token function">main</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> args<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> client <span class="token operator">=</span> <span class="token keyword">await</span> Socket<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>InternetAddress<span class="token punctuation">.</span>loopbackIPv4<span class="token punctuation">,</span> <span class="token number">33333</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> helloBytes <span class="token operator">=</span> utf8<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  client<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>helloBytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">await</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> data <span class="token keyword">in</span> client<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;clinet:$data&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">send</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">send</span><span class="token punctuation">(</span>Socket socket<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    socket<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> socket<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="dart之tcp粘包扩展"><a href="#dart之tcp粘包扩展" aria-hidden="true" class="header-anchor">#</a> dart之tcp粘包扩展</h3> <p>最近写了一个文件传输工具需要对tcp进行粘包处理，所以实现了几个tcp粘包处理类。</p> <p><strong>package:</strong> <a href="https://github.com/guodf/flutter_plugins/d_socket" target="_blank" rel="noopener noreferrer">d_socket<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-09-08
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-08
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/09/04/%E6%9C%80%E4%BD%B3%E5%BD%92%E5%B9%B6%E6%A0%91.html" class="post-link" data-v-4e23451f>
+      上一篇 : 数据结构-最佳归并树
+    </a> <a href="/posts/2019/09/08/tcp%E7%B2%98%E5%8C%85.html" class="post-link" data-v-4e23451f>
+      下一篇 : TCP粘包
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-03c72fc4 data-v-6e91a59a><div class="info-card-header" data-v-03c72fc4><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-03c72fc4></div> <div class="info-card-body" data-v-03c72fc4><section class="info-nickname" data-v-03c72fc4>
+      Net_win(guodf)
+    </section> <section class="info-desc" data-v-03c72fc4>逃离码农！</section> <section class="info-contact" data-v-03c72fc4><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-03c72fc4><section class="info-sns clearfix" data-v-03c72fc4><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-03c72fc4><span title="GitHub: guodf" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>GitHub: guodf</title><use xlink:href="#icon-github" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#dart-socket之tcp粘包">Dart Socket之TCP粘包</a><ul><li><a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#什么是tcp粘包">什么是TCP粘包</a></li><li><a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#dart中的socket">dart中的socket</a></li><li><a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#dart之tcp通信">dart之tcp通信</a></li><li><a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#dart之tcp粘包扩展">dart之tcp粘包扩展</a></li></ul></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/09/08/socket%E7%BC%96%E7%A8%8B.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-1114308c><p class="sns-links" data-v-1114308c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-1114308c><span title="GitHub: guodf" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-1114308c data-v-1114308c></use></svg></span></a></p> <p data-v-1114308c><span data-v-1114308c>Powered by </span> <a href="https://vuepress.vuejs.org" target="_blank" data-v-1114308c>
+      Vuepress
+    </a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.b6e48ec6.js" defer></script><script src="/assets/js/6.8bc1f75d.js" defer></script><script src="/assets/js/15.b5d82979.js" defer></script>
+  </body>
+</html>
