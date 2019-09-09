@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dart异步编程 | 在路上</title>
+    <meta name="description" content="This is my blog">
+    <link rel="icon" href="/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.104c48a5.css" as="style"><link rel="preload" href="/assets/js/app.75959ebc.js" as="script"><link rel="preload" href="/assets/js/6.8bc1f75d.js" as="script"><link rel="preload" href="/assets/js/19.380d771b.js" as="script"><link rel="prefetch" href="/assets/js/1.f3f91acb.js"><link rel="prefetch" href="/assets/js/10.9ff6867e.js"><link rel="prefetch" href="/assets/js/11.0c755619.js"><link rel="prefetch" href="/assets/js/12.2aa81ccd.js"><link rel="prefetch" href="/assets/js/13.61536a63.js"><link rel="prefetch" href="/assets/js/14.05be0e03.js"><link rel="prefetch" href="/assets/js/15.2fa85cec.js"><link rel="prefetch" href="/assets/js/16.edc4fca2.js"><link rel="prefetch" href="/assets/js/17.4d9f71a1.js"><link rel="prefetch" href="/assets/js/18.654a7098.js"><link rel="prefetch" href="/assets/js/20.adab2396.js"><link rel="prefetch" href="/assets/js/21.71ead525.js"><link rel="prefetch" href="/assets/js/22.aea68a6b.js"><link rel="prefetch" href="/assets/js/23.7acd6007.js"><link rel="prefetch" href="/assets/js/24.2ee6ea04.js"><link rel="prefetch" href="/assets/js/25.598aded5.js"><link rel="prefetch" href="/assets/js/26.c2912d49.js"><link rel="prefetch" href="/assets/js/27.1c6968ee.js"><link rel="prefetch" href="/assets/js/28.cffb2f04.js"><link rel="prefetch" href="/assets/js/29.1b1ae14f.js"><link rel="prefetch" href="/assets/js/3.2606dd0c.js"><link rel="prefetch" href="/assets/js/30.c5e4479b.js"><link rel="prefetch" href="/assets/js/31.6f942138.js"><link rel="prefetch" href="/assets/js/32.aabc93e4.js"><link rel="prefetch" href="/assets/js/33.1f3760bd.js"><link rel="prefetch" href="/assets/js/34.33afd3df.js"><link rel="prefetch" href="/assets/js/35.52c44312.js"><link rel="prefetch" href="/assets/js/36.f7a69f91.js"><link rel="prefetch" href="/assets/js/37.7d1bed8b.js"><link rel="prefetch" href="/assets/js/38.36fc311b.js"><link rel="prefetch" href="/assets/js/39.efdbc5d4.js"><link rel="prefetch" href="/assets/js/4.e40ca9f9.js"><link rel="prefetch" href="/assets/js/40.70bd3994.js"><link rel="prefetch" href="/assets/js/41.02d49ee1.js"><link rel="prefetch" href="/assets/js/42.d3163ce3.js"><link rel="prefetch" href="/assets/js/43.c00040bc.js"><link rel="prefetch" href="/assets/js/44.e812c7ef.js"><link rel="prefetch" href="/assets/js/45.d490063b.js"><link rel="prefetch" href="/assets/js/46.850ee686.js"><link rel="prefetch" href="/assets/js/47.b31e552e.js"><link rel="prefetch" href="/assets/js/48.2b6dd87b.js"><link rel="prefetch" href="/assets/js/5.13d4329a.js"><link rel="prefetch" href="/assets/js/7.af2f9847.js"><link rel="prefetch" href="/assets/js/8.1cf44413.js"><link rel="prefetch" href="/assets/js/9.33393787.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.104c48a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0539f1bd><div data-v-740e207b data-v-0539f1bd><nav class="navbar" data-v-740e207b><div class="container" data-v-740e207b><a href="/" class="router-link-active" data-v-740e207b><span class="navbar-site-name" data-v-740e207b>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-740e207b><svg class="icon" style="font-size:1.2em;" data-v-740e207b data-v-740e207b><title data-v-740e207b data-v-740e207b>menu</title><use xlink:href="#icon-menu" data-v-740e207b data-v-740e207b></use></svg></div> <div class="navbar-links" data-v-740e207b><a href="/" class="navbar-link" data-v-740e207b>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-740e207b>
+            成长之路
+          </a><a href="/products/" class="navbar-link" data-v-740e207b>
+            作品
+          </a><a href="/alive/" class="navbar-link" data-v-740e207b>
+            30岁
+          </a><a href="/about/" class="navbar-link" data-v-740e207b>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-740e207b></div></div> <div class="banner" data-v-98d6aa8c data-v-0539f1bd data-v-0539f1bd><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0539f1bd>
+          Dart异步编程
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-05-27
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-09
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/05/27/dart%E5%93%88%E5%B8%8C.html" class="post-link" data-v-4e23451f>
+      上一篇 : Dart加密/HASH
+    </a> <a href="/posts/2019/05/27/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.html" class="post-link" data-v-4e23451f>
+      下一篇 : Dart异常处理
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><p>[TOC]</p> <p>​	dart是一种单线程语言，异步模型主要是通过事件轮询（event loop）来实现，当然也提供了更高级的Isolate来支持并行计算，这通常用于计算比较耗时的操作。</p> <h2 id="event-loop"><a href="#event-loop" aria-hidden="true" class="header-anchor">#</a> Event loop</h2> <p>​	dart中的事件轮询包含两种事件队列：<strong>MicroTask</strong>和 <strong>EventTask</strong>，其中经常使用的属于EventTask队列，MicroTask并不常用，而且下方<code>脚注</code>的官方教程也不推荐使用。</p> <p><code>dart中的事件轮询看起来像这样：（摘自Flutter异步编程）</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">void</span> <span class="token function">eventLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>microTaskQueue<span class="token punctuation">.</span>isNotEmpty<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token comment">//执行MicroTask队列</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>eventQueue<span class="token punctuation">.</span>isNotEmpty<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token comment">//执行Event队列</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://dart.dev/articles/archive/images/both-queues.png" alt=""></p> <p>从上面代码可以看出来，每次事件轮询总是先执行完MicroTask中的事件。</p> <h3 id="microtask（不推荐使用）"><a href="#microtask（不推荐使用）" aria-hidden="true" class="header-anchor">#</a> MicroTask（不推荐使用）</h3> <p>​	虽然<code>MicroTask</code>事件轮询队列并不推荐使用，但是了解一下可以避免开发中遇到不必要的麻烦。</p> <p><strong>创建MicroTask有两种方法：</strong></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//第一种：使用全局静态方法创建</span>
+<span class="token function">scheduleMicrotask</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'this is a MicroTask demo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//第二种：使用Future.microTask方法创建</span>
+ <span class="token keyword">var</span> result<span class="token operator">=</span><span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">microtask</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;this is a MicroTask demo&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>​	从上面两段代码可以看出使用<code>Future.microtask</code>的好处是允许我们有一个返回值，而<code>scheduleMicrotask</code>则不支持返回值。</p> <h3 id="eventtask"><a href="#eventtask" aria-hidden="true" class="header-anchor">#</a> EventTask</h3> <p>​	这是一种常用的事件队列，比如await/async，Timer，Future，Stream等，除了<code>MicroTask</code>之外的所有事件。</p> <h4 id="await-async"><a href="#await-async" aria-hidden="true" class="header-anchor">#</a> await/async</h4> <p><code>async</code>标记一个方法将要返回一个<code>Future</code>对象，该对象是可以被<code>await</code>的，dart中异步的一个重要标识就是<code>await</code>，每当遇到一个<code>await</code>时，dart都会等待<code>await</code>的<code>Future</code>执行完成后再执行后面的代码。</p> <p><code>await/async</code>只是用来简化<code>Future的语法糖</code>而已。</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//如果你希望一个方法时异步执行的，首先它要有一个async标记</span>
+Future <span class="token function">foot</span><span class="token punctuation">(</span>int index<span class="token punctuation">)</span> <span class="token keyword">async</span><span class="token punctuation">{</span>
+    <span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//await可以让这个代码同步执行</span>
+    <span class="token keyword">await</span> <span class="token function">foot</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//没有await标记，代码将异步执行</span>
+    <span class="token function">foot</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//下面时执行结果，是否符合你的预期：</span>
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+<span class="token number">5</span>
+<span class="token number">4</span>
+</code></pre></div><h4 id="timer定时器"><a href="#timer定时器" aria-hidden="true" class="header-anchor">#</a> Timer定时器</h4> <p>​	Timer是dart中的定时器，支持立即（Timer.run()），延迟（Time()），间隔（Timer.periodic()）3种执行方式。</p> <p>​	因为dart是单线程运行的所以<code>Timer</code>的执行也是需要在<code>EventTask</code>队列中排队执行的。下面这段代码演示Timer也要写入<code>EventTask</code>队列中才能运行：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">import</span> <span class="token string">'dart:async'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token comment">//立即执行</span>
+  Timer<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'timer 0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//延迟2s执行</span>
+  <span class="token function">Timer</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'timer 2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> begin <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//使用循环延迟1s，</span>
+  <span class="token comment">//使用这种方式的好处是，一旦循环开始必须结束才会执行其它操作</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> microseconds <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">difference</span><span class="token punctuation">(</span>begin<span class="token punctuation">)</span><span class="token punctuation">.</span>inMicroseconds<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>microseconds <span class="token operator">&gt;</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'timer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//延迟1s</span>
+  <span class="token function">Timer</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'timer 1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//执行结果：</span>
+timer
+timer <span class="token number">0</span>
+timer <span class="token number">1</span>
+timer <span class="token number">2</span>
+</code></pre></div><p>代码开头我们定义了一个立即执行Timer，但是先执行的却是while代码块，说明Timer只是向事件循环中添加了一个任务，while代码块延迟1s，所以先被添加到事件循环的就是延迟1s的Timer，这也说明只有到了延迟时间才会将后续要执行的代码放进事件循环，而不是在定义的时候就放进去的。</p> <h4 id="future"><a href="#future" aria-hidden="true" class="header-anchor">#</a> Future</h4> <p>​	<code>Future</code>是<code>Timer</code>的加强版本，一个<code>Timer</code>通常只处理一个无返回值的函数，Future对Timer进行了包装。Future是一个异步处理对象，所有的异步操作都返回一个Future对象，Future不是最终的返回值，只是一个异步状态值，你可以对一个Future对象使用await来等待异步操作完成。</p> <p><code>Future()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//使用Future可以很容易的创建一个异步运行的匿名方法</span>
+<span class="token keyword">var</span> result<span class="token operator">=</span><span class="token keyword">await</span> <span class="token function">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'返回一个bool值'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.delayed()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//延迟异步执行一个方法</span>
+result<span class="token operator">=</span><span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'延迟返回一个bool值'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.wait()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//等待异步方法完成,wait可以保证所有的future都是按照顺序执行</span>
+<span class="token comment">//相当于：</span>
+<span class="token comment">// await future1;</span>
+<span class="token comment">// await future2;</span>
+<span class="token comment">// await future3;</span>
+<span class="token keyword">var</span> future1<span class="token operator">=</span>Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第1个Future完成'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> future2<span class="token operator">=</span><span class="token function">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第2个Future完成'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> future3<span class="token operator">=</span>Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第3个Future完成'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'等待Futures完成'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> results <span class="token operator">=</span><span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span><span class="token punctuation">[</span>future1<span class="token punctuation">,</span>future2<span class="token punctuation">,</span>future3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> item <span class="token keyword">in</span> results<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>Future.any()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//当任何一个future完成时结束</span>
+<span class="token keyword">var</span> anyFuture1<span class="token operator">=</span>Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第一个Future'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> anyFuture2<span class="token operator">=</span><span class="token function">Future</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第二个Future'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> anyFuture3<span class="token operator">=</span>Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'第3个Future'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'等待最快完成的Future'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> item <span class="token operator">=</span> <span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">[</span>anyFuture1<span class="token punctuation">,</span>anyFuture2<span class="token punctuation">,</span>anyFuture3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.forEach()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//使用Future遍历Iterable&lt;T&gt;对象,</span>
+<span class="token comment">//下面对比普通的forEach与Future.forEach的区别</span>
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token keyword">async</span><span class="token punctuation">{</span>
+    <span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'forEach item $item'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//Future.forEach总是按顺序执行</span>
+<span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token keyword">async</span><span class="token punctuation">{</span>
+    <span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Future.forEach item $item'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.doWhile()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//启动一个Future，直到返回值为false时结束</span>
+<span class="token keyword">var</span> index<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">doWhile</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'doWhile item ${index++}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> index<span class="token operator">!=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.sync</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//直接执行sync中传递的方法，始终返回一个Future</span>
+<span class="token comment">//下面的代码可以看到返回结果始终时一个Future</span>
+<span class="token keyword">var</span> syncResult1<span class="token operator">=</span><span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;无async标记&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>syncResult1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> syncResult2<span class="token operator">=</span><span class="token keyword">await</span> Future<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'有async标记'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>syncResult2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.microtask()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//创建一个MicroTask任务</span>
+Future<span class="token punctuation">.</span><span class="token function">microtask</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.value()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//从值对象构造一个Future</span>
+<span class="token keyword">var</span> future<span class="token operator">=</span><span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//等价：Future.sync(()=&gt;'future执行结果');</span>
+    <span class="token keyword">return</span> Future<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token string">'future执行结果'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span>future<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Future.error()</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//创建一个错误返回值的Future</span>
+<span class="token keyword">var</span> failedFuture<span class="token operator">=</span><span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    	<span class="token keyword">return</span> Future<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'创建一个错误返回值的Future'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>failedFuture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="stream"><a href="#stream" aria-hidden="true" class="header-anchor">#</a> Stream</h4> <h4 id="completer"><a href="#completer" aria-hidden="true" class="header-anchor">#</a> Completer</h4> <h4 id="flutter中的eventtask"><a href="#flutter中的eventtask" aria-hidden="true" class="header-anchor">#</a> Flutter中的EventTask</h4> <h3 id="microtask与eventtask的执行顺序对比："><a href="#microtask与eventtask的执行顺序对比：" aria-hidden="true" class="header-anchor">#</a> MicroTask与EventTask的执行顺序对比：</h3> <p>下面有两段官方提供的代码足以搞懂他们的区别：</p> <ol><li>https://dart.dev/articles/archive/event-loop#question-1</li> <li>https://dart.dev/articles/archive/event-loop#question-2</li></ol> <h2 id="isolate"><a href="#isolate" aria-hidden="true" class="header-anchor">#</a> Isolate</h2> <h4 id="flutter中的isolate"><a href="#flutter中的isolate" aria-hidden="true" class="header-anchor">#</a> Flutter中的Isolate</h4></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-05-27
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2019-09-09
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/05/27/dart%E5%93%88%E5%B8%8C.html" class="post-link" data-v-4e23451f>
+      上一篇 : Dart加密/HASH
+    </a> <a href="/posts/2019/05/27/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.html" class="post-link" data-v-4e23451f>
+      下一篇 : Dart异常处理
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-03c72fc4 data-v-6e91a59a><div class="info-card-header" data-v-03c72fc4><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-03c72fc4></div> <div class="info-card-body" data-v-03c72fc4><section class="info-nickname" data-v-03c72fc4>
+      Net_win(guodf)
+    </section> <section class="info-desc" data-v-03c72fc4>逃离码农！</section> <section class="info-contact" data-v-03c72fc4><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-03c72fc4><section class="info-sns clearfix" data-v-03c72fc4><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-03c72fc4><span title="GitHub: guodf" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>GitHub: guodf</title><use xlink:href="#icon-github" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#event-loop">Event loop</a><ul><li><a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#microtask（不推荐使用）">MicroTask（不推荐使用）</a></li><li><a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#eventtask">EventTask</a></li><li><a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#microtask与eventtask的执行顺序对比：">MicroTask与EventTask的执行顺序对比：</a></li></ul></li><li><a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#isolate">Isolate</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/05/27/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-1114308c><p class="sns-links" data-v-1114308c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-1114308c><span title="GitHub: guodf" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-1114308c data-v-1114308c></use></svg></span></a></p> <p data-v-1114308c><span data-v-1114308c>Powered by </span> <a href="https://vuepress.vuejs.org" target="_blank" data-v-1114308c>
+      Vuepress
+    </a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.75959ebc.js" defer></script><script src="/assets/js/6.8bc1f75d.js" defer></script><script src="/assets/js/19.380d771b.js" defer></script>
+  </body>
+</html>
