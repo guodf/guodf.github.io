@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MySQL常用配置 | 在路上</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="icon" href="/logo.jpg">
+    <meta name="description" content="This is my blog">
+    <link rel="preload" href="/assets/css/0.styles.d5742e15.css" as="style"><link rel="preload" href="/assets/js/app.b9dbe4e1.js" as="script"><link rel="preload" href="/assets/js/7.e02e014f.js" as="script"><link rel="preload" href="/assets/js/50.23d9972e.js" as="script"><link rel="prefetch" href="/assets/js/1.0579d41a.js"><link rel="prefetch" href="/assets/js/10.0a7f2ae2.js"><link rel="prefetch" href="/assets/js/11.59bdf599.js"><link rel="prefetch" href="/assets/js/12.0157d995.js"><link rel="prefetch" href="/assets/js/13.e8e998d8.js"><link rel="prefetch" href="/assets/js/14.4a626aa9.js"><link rel="prefetch" href="/assets/js/15.1aa9c3d0.js"><link rel="prefetch" href="/assets/js/16.133db66d.js"><link rel="prefetch" href="/assets/js/17.2ae7f50d.js"><link rel="prefetch" href="/assets/js/18.634e017c.js"><link rel="prefetch" href="/assets/js/19.7e2ce662.js"><link rel="prefetch" href="/assets/js/20.58611413.js"><link rel="prefetch" href="/assets/js/21.7851a023.js"><link rel="prefetch" href="/assets/js/22.a40d191b.js"><link rel="prefetch" href="/assets/js/23.301f819f.js"><link rel="prefetch" href="/assets/js/24.5c327c27.js"><link rel="prefetch" href="/assets/js/25.65d6ef81.js"><link rel="prefetch" href="/assets/js/26.f85aa54c.js"><link rel="prefetch" href="/assets/js/27.5d5d0047.js"><link rel="prefetch" href="/assets/js/28.7f86262c.js"><link rel="prefetch" href="/assets/js/29.39b19c5f.js"><link rel="prefetch" href="/assets/js/3.c9826126.js"><link rel="prefetch" href="/assets/js/30.e903d6d8.js"><link rel="prefetch" href="/assets/js/31.5d8f1ac2.js"><link rel="prefetch" href="/assets/js/32.d4a763de.js"><link rel="prefetch" href="/assets/js/33.fbcefdcc.js"><link rel="prefetch" href="/assets/js/34.373c20a6.js"><link rel="prefetch" href="/assets/js/35.43f9f514.js"><link rel="prefetch" href="/assets/js/36.7f5c4218.js"><link rel="prefetch" href="/assets/js/37.e555f18b.js"><link rel="prefetch" href="/assets/js/38.72c3468c.js"><link rel="prefetch" href="/assets/js/39.c4fd123e.js"><link rel="prefetch" href="/assets/js/4.feb8ed98.js"><link rel="prefetch" href="/assets/js/40.6d631fe2.js"><link rel="prefetch" href="/assets/js/41.7a434004.js"><link rel="prefetch" href="/assets/js/42.3532ad2b.js"><link rel="prefetch" href="/assets/js/43.1708a462.js"><link rel="prefetch" href="/assets/js/44.538eb4bd.js"><link rel="prefetch" href="/assets/js/45.a5cec21b.js"><link rel="prefetch" href="/assets/js/46.59c15d94.js"><link rel="prefetch" href="/assets/js/47.3f3e0e8d.js"><link rel="prefetch" href="/assets/js/48.fa0d1a0f.js"><link rel="prefetch" href="/assets/js/49.49021a6d.js"><link rel="prefetch" href="/assets/js/5.dbc621d2.js"><link rel="prefetch" href="/assets/js/51.fc1f6510.js"><link rel="prefetch" href="/assets/js/52.f7e4a840.js"><link rel="prefetch" href="/assets/js/53.f62252d0.js"><link rel="prefetch" href="/assets/js/54.0cfbf5e3.js"><link rel="prefetch" href="/assets/js/55.d3f16194.js"><link rel="prefetch" href="/assets/js/56.f28964c9.js"><link rel="prefetch" href="/assets/js/57.e4a4d0c6.js"><link rel="prefetch" href="/assets/js/58.9a692e4a.js"><link rel="prefetch" href="/assets/js/59.2bde4a8b.js"><link rel="prefetch" href="/assets/js/6.2c232fa3.js"><link rel="prefetch" href="/assets/js/60.57ab9ad5.js"><link rel="prefetch" href="/assets/js/61.650e9d5a.js"><link rel="prefetch" href="/assets/js/62.29f3e44a.js"><link rel="prefetch" href="/assets/js/63.d9840511.js"><link rel="prefetch" href="/assets/js/64.630774a1.js"><link rel="prefetch" href="/assets/js/65.2b309025.js"><link rel="prefetch" href="/assets/js/66.e36ba0f7.js"><link rel="prefetch" href="/assets/js/67.4662592c.js"><link rel="prefetch" href="/assets/js/68.e0082f8d.js"><link rel="prefetch" href="/assets/js/69.2ecd0095.js"><link rel="prefetch" href="/assets/js/70.f663eeba.js"><link rel="prefetch" href="/assets/js/71.31822a45.js"><link rel="prefetch" href="/assets/js/72.8859f666.js"><link rel="prefetch" href="/assets/js/73.8310fa08.js"><link rel="prefetch" href="/assets/js/74.162e18fb.js"><link rel="prefetch" href="/assets/js/75.26d621af.js"><link rel="prefetch" href="/assets/js/76.2405dace.js"><link rel="prefetch" href="/assets/js/77.77eb499e.js"><link rel="prefetch" href="/assets/js/78.feb90fde.js"><link rel="prefetch" href="/assets/js/79.23523396.js"><link rel="prefetch" href="/assets/js/8.75cfc9bd.js"><link rel="prefetch" href="/assets/js/80.a12f916d.js"><link rel="prefetch" href="/assets/js/81.e2d89873.js"><link rel="prefetch" href="/assets/js/82.f56d6a30.js"><link rel="prefetch" href="/assets/js/83.960da6a1.js"><link rel="prefetch" href="/assets/js/84.7b9fc51c.js"><link rel="prefetch" href="/assets/js/85.afe42a2b.js"><link rel="prefetch" href="/assets/js/86.9e57c48c.js"><link rel="prefetch" href="/assets/js/87.356b3b1c.js"><link rel="prefetch" href="/assets/js/88.afb8bc3e.js"><link rel="prefetch" href="/assets/js/89.77d39968.js"><link rel="prefetch" href="/assets/js/9.4327b57c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d5742e15.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0be91240><div data-v-3e9833e9 data-v-0be91240><nav class="navbar" data-v-3e9833e9><div class="container" data-v-3e9833e9><a href="/" class="router-link-active" data-v-3e9833e9><span class="navbar-site-name" data-v-3e9833e9>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-3e9833e9><svg class="icon" style="font-size:1.2em;" data-v-3e9833e9 data-v-3e9833e9><title data-v-3e9833e9 data-v-3e9833e9>menu</title><use xlink:href="#icon-menu" data-v-3e9833e9 data-v-3e9833e9></use></svg></div> <div class="navbar-links" data-v-3e9833e9><a href="/" class="navbar-link" data-v-3e9833e9>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-3e9833e9>
+            足迹
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-3e9833e9></div></div> <div class="banner" data-v-98d6aa8c data-v-0be91240 data-v-0be91240><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0be91240>
+          MySQL常用配置
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-06-04
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2020-05-05
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/06/03/mysql%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      上一篇 : MySQL安装与配置
+    </a> <a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      下一篇 : MySQL主从配置
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="mysql常用配置"><a href="#mysql常用配置" class="header-anchor">#</a> MySQL常用配置</h1> <p>MySQL配置参数多达数百个，不过常用的并不多，很多配置我们不需要关心，只要掌握一些必要的配置项就能解决99%的问题，当遇见了那1%的问题时mysql可能已经不能满足你的需求了。</p> <p>这里推荐一个在线生成配置文件的网址：https://imysql.com/my-cnf-wizard.html，我们只需要做出一些场景描述就可以得到一个配置文件，再根据具体的场景做适当的修改就行了。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#
+## my.cnf for MySQL 5.7/8.0
+## 本配置文件主要适用于MySQL 5.7/8.0版本
+#
+[client]
+port	= 3306
+socket	= /data/mysql/mysql.sock
+[mysqld]
+user	= mysql
+port	= 3306
+basedir	= /usr/local/mysql
+datadir	= /data/mysql
+socket	= /data/mysql/mysql.sock
+pid-file = mysqldb.pid
+character-set-server = utf8mb4
+skip_name_resolve = 1
+#若你的MySQL数据库主要运行在境外，请务必根据实际情况调整本参数
+default_time_zone = &quot;+8:00&quot;
+open_files_limit    = 65535
+back_log = 1024
+max_connections = 512
+max_connect_errors = 1000000
+table_open_cache = 1024
+table_definition_cache = 1024
+table_open_cache_instances = 64
+th_stack = 512K
+external-locking = FALSE
+max_allowed_packet = 32M
+sort_buffer_size = 4M
+join_buffer_size = 4M
+thread_cache_size = 768
+interactive_timeout = 600
+wait_timeout = 600
+tmp_table_size = 32M
+max_heap_table_size = 32M
+slow_query_log = 1
+log_timestamps = SYSTEM
+slow_query_log_file = /data/mysql/slow.log
+log-error = /data/mysql/error.log
+long_query_time = 0.1
+log_queries_not_using_indexes =1
+log_throttle_queries_not_using_indexes = 60
+min_examined_row_limit = 100
+log_slow_admin_statements = 1
+log_slow_slave_statements = 1
+server-id = 3306
+log-bin = /data/mysql/mybinlog
+sync_binlog = 1
+binlog_cache_size = 4M
+max_binlog_cache_size = 2G
+max_binlog_size = 1G
+#注意：MySQL 8.0开始，binlog_expire_logs_seconds选项也存在的话，会忽略expire_logs_days选项
+expire_logs_days = 7
+master_info_repository = TABLE
+relay_log_info_repository = TABLE
+gtid_mode = on
+enforce_gtid_consistency = 1
+log_slave_updates
+slave-rows-search-algorithms = 'INDEX_SCAN,HASH_SCAN'
+binlog_format = row
+binlog_checksum = 1
+relay_log_recovery = 1
+relay-log-purge = 1
+key_buffer_size = 32M
+read_buffer_size = 8M
+read_rnd_buffer_size = 4M
+bulk_insert_buffer_size = 64M
+myisam_sort_buffer_size = 128M
+myisam_max_sort_file_size = 10G
+myisam_repair_threads = 1
+lock_wait_timeout = 3600
+explicit_defaults_for_timestamp = 1
+innodb_thread_concurrency = 0
+innodb_sync_spin_loops = 100
+innodb_spin_wait_delay = 30
+transaction_isolation = REPEATABLE-READ
+#innodb_additional_mem_pool_size = 16M
+innodb_buffer_pool_size = 22938M
+innodb_buffer_pool_instances = 4
+innodb_buffer_pool_load_at_startup = 1
+innodb_buffer_pool_dump_at_shutdown = 1
+innodb_data_file_path = ibdata1:1G:autoextend
+innodb_flush_log_at_trx_commit = 1
+innodb_log_buffer_size = 32M
+innodb_log_file_size = 2G
+innodb_log_files_in_group = 2
+innodb_max_undo_log_size = 4G
+innodb_undo_directory = /data/mysql/undolog
+innodb_undo_tablespaces = 95
+# 根据您的服务器IOPS能力适当调整
+# 一般配普通SSD盘的话，可以调整到 10000 - 20000
+# 配置高端PCIe SSD卡的话，则可以调整的更高，比如 50000 - 80000
+innodb_io_capacity = 4000
+innodb_io_capacity_max = 8000
+innodb_flush_sync = 0
+innodb_flush_neighbors = 0
+innodb_write_io_threads = 8
+innodb_read_io_threads = 8
+innodb_purge_threads = 4
+innodb_page_cleaners = 4
+innodb_open_files = 65535
+innodb_max_dirty_pages_pct = 50
+innodb_flush_method = O_DIRECT
+innodb_lru_scan_depth = 4000
+innodb_checksum_algorithm = crc32
+innodb_lock_wait_timeout = 10
+innodb_rollback_on_timeout = 1
+innodb_print_all_deadlocks = 1
+innodb_file_per_table = 1
+innodb_online_alter_log_max_size = 4G
+innodb_stats_on_metadata = 0
+innodb_undo_log_truncate = 1
+# some var for MySQL 5.7
+innodb_checksums = 1
+#innodb_file_format = Barracuda
+#innodb_file_format_max = Barracuda
+query_cache_size = 0
+query_cache_type = 0
+innodb_undo_logs = 128
+#注意：MySQL 8.0.16开始删除该选项
+internal_tmp_disk_storage_engine = InnoDB
+innodb_status_file = 1
+#注意: 开启 innodb_status_output &amp; innodb_status_output_locks 后, 可能会导致log-error文件增长较快
+innodb_status_output = 0
+innodb_status_output_locks = 0
+#performance_schema
+performance_schema = 1
+performance_schema_instrument = '%memory%=on'
+performance_schema_instrument = '%lock%=on'
+#innodb monitor
+innodb_monitor_enable=&quot;module_innodb&quot;
+innodb_monitor_enable=&quot;module_server&quot;
+innodb_monitor_enable=&quot;module_dml&quot;
+innodb_monitor_enable=&quot;module_ddl&quot;
+innodb_monitor_enable=&quot;module_trx&quot;
+innodb_monitor_enable=&quot;module_os&quot;
+innodb_monitor_enable=&quot;module_purge&quot;
+innodb_monitor_enable=&quot;module_log&quot;
+innodb_monitor_enable=&quot;module_lock&quot;
+innodb_monitor_enable=&quot;module_buffer&quot;
+innodb_monitor_enable=&quot;module_index&quot;
+innodb_monitor_enable=&quot;module_ibuf_system&quot;
+innodb_monitor_enable=&quot;module_buffer_page&quot;
+innodb_monitor_enable=&quot;module_adaptive_hash&quot;
+[mysqldump]
+quick
+max_allowed_packet = 32M
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br></div></div><h2 id="client配置项"><a href="#client配置项" class="header-anchor">#</a> client配置项</h2> <p>该配置项常用在我们需要通过mysql命令行来执行一些初始安装操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[client]
+# mysql命令行默认的连接端口，也可以通过-p参数来指定端口
+port	= 3306
+# mysql命令行默认连接的mysqld服务的socket通信文件
+# 如果没有配置该且在我们修改了mysqld的socket通信文件的默认位置，则需要通过-S参数指定该文件
+# 也可使通过-h来指定要连接的ip地址
+socket	= /data/mysql/mysql.sock
+# mysql命令行默认使用的用户名
+user=root
+# root用户的密码
+password=密码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="mysqld配置项"><a href="#mysqld配置项" class="header-anchor">#</a> mysqld配置项</h2> <h4 id="基本配置"><a href="#基本配置" class="header-anchor">#</a> 基本配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># 启动mysql服务的系统账户，开发环境通常为root
+user	= root
+# mysql服务的端口
+port	= 3306
+# mysql的位置
+basedir	= /usr/local/mysql
+# mysql数据目录的位置
+datadir	= /data/mysql
+# mysql服务的通信文件
+socket	= /data/mysql/mysql.sock
+# mysql服务启动后的进程id
+pid-file = mysqldb.pid
+# 是否dns解析，大型项目架构中通常会有一个内部dns服务器，此时设置为0合适，如果设置为1就只能使用ip地址了。
+skip_name_resolve = 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="字符集配置"><a href="#字符集配置" class="header-anchor">#</a> 字符集配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># utf8mb4是utf8的超级，支持4字节的unicode，缺点是比utf8占用空间多点，最好设置为utf8mb4吧
+character-set-server = utf8mb4
+collation-server = utf8mb4_general_ci
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="sql语法-行为配置"><a href="#sql语法-行为配置" class="header-anchor">#</a> sql语法/行为配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># 表名忽略大小写
+lower_case_table_names=1
+# 语法限制,一般不设置,常用的就是only full group by
+# sql_mode=
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="连接优化配置"><a href="#连接优化配置" class="header-anchor">#</a> 连接优化配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># tcp连接缓冲池大小
+back_log = 500
+# 最大连接数
+max_connections=3000
+# 每个用户的最大连接数,如果只有一个用户可以设置为0,或者小于等于max_connections
+max_user_connections=500
+# 最大并行连接数
+max_used_connections=1000
+# 最大连接失败次数,超过则禁止连接,直到重启或执行flush hosts命令
+max_connect_errors = 6000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="查询缓存优化配置"><a href="#查询缓存优化配置" class="header-anchor">#</a> 查询缓存优化配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># 排序,分组
+sort_buffer_size = 4M
+# 连接查询
+join_buffer_size = 4M
+# 索引占用的内存代下
+key_buffer_size = 2048M
+# 每个连接全表扫描时的缓冲区大小
+read_buffer_size = 8M
+# 每个连接随机扫描的缓冲区大小
+read_rnd_buffer_size = 4M
+# 不限制大小,由mysql自己决定
+query_cache_size=0
+# 开启缓存
+query_cache_type=1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="事务配置"><a href="#事务配置" class="header-anchor">#</a> 事务配置</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code># 修改默认事务级别
+transaction_isolation=READ-COMMITTED
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="线程优化"><a href="#线程优化" class="header-anchor">#</a> 线程优化</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>thread_cache_size = 768
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-06-04
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2020-05-05
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/06/03/mysql%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      上一篇 : MySQL安装与配置
+    </a> <a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      下一篇 : MySQL主从配置
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-23d90c50 data-v-6e91a59a><div class="info-card-header" data-v-23d90c50><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-23d90c50></div> <div class="info-card-body" data-v-23d90c50><section class="info-nickname" data-v-23d90c50>
+      Net_win(guodf)
+    </section> <!----> <section class="info-contact" data-v-23d90c50><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-23d90c50><section class="info-sns clearfix" data-v-23d90c50><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-23d90c50><span title="GitHub: guodf" class="sns-icon" data-v-23d90c50 data-v-23d90c50><svg class="icon" style="font-size:1.5em;" data-v-23d90c50 data-v-23d90c50><title data-v-23d90c50 data-v-23d90c50>GitHub: guodf</title><use xlink:href="#icon-github" data-v-23d90c50 data-v-23d90c50></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/06/04/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html#client配置项">client配置项</a></li><li><a href="/posts/2019/06/04/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html#mysqld配置项">mysqld配置项</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/06/04/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html#post-comments">
+      评论
+    </a></div></div></aside></div> <div style="display:flex;align-items:center;border-top:solid 1px #eaecef;"><div style="width:150px;"></div> <div id="other" style="z-index:100;"><a href="https://www.upyun.com/" target="_blank"><img src="/upyun.png" style="width:63px;height:60px;"></a></div> <footer class="footer" style="flex:1;margin-left:-100px;" data-v-f018ab8c><p class="footer-sns-links" data-v-f018ab8c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-f018ab8c><span title="GitHub: guodf" class="sns-icon" data-v-f018ab8c data-v-f018ab8c><svg class="icon" style="font-size:25px;" data-v-f018ab8c data-v-f018ab8c><title data-v-f018ab8c data-v-f018ab8c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-f018ab8c data-v-f018ab8c></use></svg></span></a></p> <p class="footer-text" data-v-f018ab8c><span data-v-f018ab8c>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-f018ab8c>
+      VuePress
+    </a> <span data-v-f018ab8c> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-f018ab8c>
+        meteorlxy
+      </a></p> <!----></footer></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.b9dbe4e1.js" defer></script><script src="/assets/js/7.e02e014f.js" defer></script><script src="/assets/js/50.23d9972e.js" defer></script>
+  </body>
+</html>

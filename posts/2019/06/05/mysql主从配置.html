@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MySQL主从配置 | 在路上</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="icon" href="/logo.jpg">
+    <meta name="description" content="This is my blog">
+    <link rel="preload" href="/assets/css/0.styles.d5742e15.css" as="style"><link rel="preload" href="/assets/js/app.b9dbe4e1.js" as="script"><link rel="preload" href="/assets/js/7.e02e014f.js" as="script"><link rel="preload" href="/assets/js/48.fa0d1a0f.js" as="script"><link rel="prefetch" href="/assets/js/1.0579d41a.js"><link rel="prefetch" href="/assets/js/10.0a7f2ae2.js"><link rel="prefetch" href="/assets/js/11.59bdf599.js"><link rel="prefetch" href="/assets/js/12.0157d995.js"><link rel="prefetch" href="/assets/js/13.e8e998d8.js"><link rel="prefetch" href="/assets/js/14.4a626aa9.js"><link rel="prefetch" href="/assets/js/15.1aa9c3d0.js"><link rel="prefetch" href="/assets/js/16.133db66d.js"><link rel="prefetch" href="/assets/js/17.2ae7f50d.js"><link rel="prefetch" href="/assets/js/18.634e017c.js"><link rel="prefetch" href="/assets/js/19.7e2ce662.js"><link rel="prefetch" href="/assets/js/20.58611413.js"><link rel="prefetch" href="/assets/js/21.7851a023.js"><link rel="prefetch" href="/assets/js/22.a40d191b.js"><link rel="prefetch" href="/assets/js/23.301f819f.js"><link rel="prefetch" href="/assets/js/24.5c327c27.js"><link rel="prefetch" href="/assets/js/25.65d6ef81.js"><link rel="prefetch" href="/assets/js/26.f85aa54c.js"><link rel="prefetch" href="/assets/js/27.5d5d0047.js"><link rel="prefetch" href="/assets/js/28.7f86262c.js"><link rel="prefetch" href="/assets/js/29.39b19c5f.js"><link rel="prefetch" href="/assets/js/3.c9826126.js"><link rel="prefetch" href="/assets/js/30.e903d6d8.js"><link rel="prefetch" href="/assets/js/31.5d8f1ac2.js"><link rel="prefetch" href="/assets/js/32.d4a763de.js"><link rel="prefetch" href="/assets/js/33.fbcefdcc.js"><link rel="prefetch" href="/assets/js/34.373c20a6.js"><link rel="prefetch" href="/assets/js/35.43f9f514.js"><link rel="prefetch" href="/assets/js/36.7f5c4218.js"><link rel="prefetch" href="/assets/js/37.e555f18b.js"><link rel="prefetch" href="/assets/js/38.72c3468c.js"><link rel="prefetch" href="/assets/js/39.c4fd123e.js"><link rel="prefetch" href="/assets/js/4.feb8ed98.js"><link rel="prefetch" href="/assets/js/40.6d631fe2.js"><link rel="prefetch" href="/assets/js/41.7a434004.js"><link rel="prefetch" href="/assets/js/42.3532ad2b.js"><link rel="prefetch" href="/assets/js/43.1708a462.js"><link rel="prefetch" href="/assets/js/44.538eb4bd.js"><link rel="prefetch" href="/assets/js/45.a5cec21b.js"><link rel="prefetch" href="/assets/js/46.59c15d94.js"><link rel="prefetch" href="/assets/js/47.3f3e0e8d.js"><link rel="prefetch" href="/assets/js/49.49021a6d.js"><link rel="prefetch" href="/assets/js/5.dbc621d2.js"><link rel="prefetch" href="/assets/js/50.23d9972e.js"><link rel="prefetch" href="/assets/js/51.fc1f6510.js"><link rel="prefetch" href="/assets/js/52.f7e4a840.js"><link rel="prefetch" href="/assets/js/53.f62252d0.js"><link rel="prefetch" href="/assets/js/54.0cfbf5e3.js"><link rel="prefetch" href="/assets/js/55.d3f16194.js"><link rel="prefetch" href="/assets/js/56.f28964c9.js"><link rel="prefetch" href="/assets/js/57.e4a4d0c6.js"><link rel="prefetch" href="/assets/js/58.9a692e4a.js"><link rel="prefetch" href="/assets/js/59.2bde4a8b.js"><link rel="prefetch" href="/assets/js/6.2c232fa3.js"><link rel="prefetch" href="/assets/js/60.57ab9ad5.js"><link rel="prefetch" href="/assets/js/61.650e9d5a.js"><link rel="prefetch" href="/assets/js/62.29f3e44a.js"><link rel="prefetch" href="/assets/js/63.d9840511.js"><link rel="prefetch" href="/assets/js/64.630774a1.js"><link rel="prefetch" href="/assets/js/65.2b309025.js"><link rel="prefetch" href="/assets/js/66.e36ba0f7.js"><link rel="prefetch" href="/assets/js/67.4662592c.js"><link rel="prefetch" href="/assets/js/68.e0082f8d.js"><link rel="prefetch" href="/assets/js/69.2ecd0095.js"><link rel="prefetch" href="/assets/js/70.f663eeba.js"><link rel="prefetch" href="/assets/js/71.31822a45.js"><link rel="prefetch" href="/assets/js/72.8859f666.js"><link rel="prefetch" href="/assets/js/73.8310fa08.js"><link rel="prefetch" href="/assets/js/74.162e18fb.js"><link rel="prefetch" href="/assets/js/75.26d621af.js"><link rel="prefetch" href="/assets/js/76.2405dace.js"><link rel="prefetch" href="/assets/js/77.77eb499e.js"><link rel="prefetch" href="/assets/js/78.feb90fde.js"><link rel="prefetch" href="/assets/js/79.23523396.js"><link rel="prefetch" href="/assets/js/8.75cfc9bd.js"><link rel="prefetch" href="/assets/js/80.a12f916d.js"><link rel="prefetch" href="/assets/js/81.e2d89873.js"><link rel="prefetch" href="/assets/js/82.f56d6a30.js"><link rel="prefetch" href="/assets/js/83.960da6a1.js"><link rel="prefetch" href="/assets/js/84.7b9fc51c.js"><link rel="prefetch" href="/assets/js/85.afe42a2b.js"><link rel="prefetch" href="/assets/js/86.9e57c48c.js"><link rel="prefetch" href="/assets/js/87.356b3b1c.js"><link rel="prefetch" href="/assets/js/88.afb8bc3e.js"><link rel="prefetch" href="/assets/js/89.77d39968.js"><link rel="prefetch" href="/assets/js/9.4327b57c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d5742e15.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-0be91240><div data-v-3e9833e9 data-v-0be91240><nav class="navbar" data-v-3e9833e9><div class="container" data-v-3e9833e9><a href="/" class="router-link-active" data-v-3e9833e9><span class="navbar-site-name" data-v-3e9833e9>
+          在路上
+        </span></a> <div class="navbar-toggler" data-v-3e9833e9><svg class="icon" style="font-size:1.2em;" data-v-3e9833e9 data-v-3e9833e9><title data-v-3e9833e9 data-v-3e9833e9>menu</title><use xlink:href="#icon-menu" data-v-3e9833e9 data-v-3e9833e9></use></svg></div> <div class="navbar-links" data-v-3e9833e9><a href="/" class="navbar-link" data-v-3e9833e9>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-3e9833e9>
+            足迹
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-3e9833e9></div></div> <div class="banner" data-v-98d6aa8c data-v-0be91240 data-v-0be91240><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0be91240>
+          MySQL主从配置
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-6e91a59a data-v-6e91a59a><main class="main" data-v-6e91a59a><div class="post" data-v-6e91a59a data-v-6e91a59a><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-06-05
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2020-05-05
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/06/04/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      上一篇 : MySQL常用配置
+    </a> <a href="/posts/2019/08/19/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" class="post-link" data-v-4e23451f>
+      下一篇 : adb常用命令
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="mysql主从配置"><a href="#mysql主从配置" class="header-anchor">#</a> MySQL主从配置</h1> <p>首先准备两个MySQL服务器,具体mysql安装教程之前文章有介绍.</p> <h3 id="创建master"><a href="#创建master" class="header-anchor">#</a> 创建master</h3> <p>推荐是用<code>mysqld_multi</code>管理mysql服务器</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[mysqld_multi]
+mysqld=/usr/local/mysql/bin/mysqld_safe
+[mysqld1]
+# 基础配置
+port=3306
+user=root
+basedir	= /usr/local/mysql
+datadir=/mysql/3306/data
+pid-file = /mysql/3306/mysql.pid
+socket=/mysql/3306/mysql.sock
+log_error=/mysql/3306/error.log
+# 服务器id,必须
+server-id=1
+# 开机二进制日志
+log-bin=/mysql/3306/mysqlbin
+# 可以忽略
+binlog-ignore-db=mysql 
+# 需要复制的数据库,必须
+binlog-do-db=test
+# STATEMENT不能解决时间函数的问题
+# ROW记录每一行的改变，效率低
+# MIXED自动切换，如果存在函数就用ROW，否则使用STATEMENT
+binlog_format=mixed
+# 二进制缓存大小
+binlog_cache_size=4M
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>启动master</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysqld_multi --defaults-file=/root/mysql/my_multi.cnf start 1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>创建用于同步数据的账户</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 连接到master节点: mysql -uroot -p -S /mysql/3306/mysql.sock
+GRANT REPLICATION SLAVE ON *.* TO 'slave'@'%' IDENTIFIED BY '123456';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>查看master状态和复制起始点</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>show master status;
+# File为复制的文件 Position为开始复制的接入点
++-----------------+----------+--------------+------------------+-------------------+
+| File            | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++-----------------+----------+--------------+------------------+-------------------+
+| mysqlbin.000001 |      682 | test         | mysql            |                   |
++-----------------+----------+--------------+------------------+-------------------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="创建slave节点"><a href="#创建slave节点" class="header-anchor">#</a> 创建slave节点</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>[mysqld2]
+port=3307
+user=root
+basedir	= /usr/local/mysql
+datadir=/mysql/3307/data
+socket=/mysql/3307/mysql.sock
+pid-file = /mysql/3307/mysql.pid
+socket=/mysql/3307/mysql.sock
+log_error=/mysql/3307/error.log
+server-id=2
+relay-log=mysql-relay
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>启动slave节点</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysqld_multi --defaults-file=/root/mysql/my_multi.cnf start 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>连接master</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>CHANGE MASTER TO MASTER_HOST='127.0.0.1',
+MASTER_PORT=3307,
+MASTER_USER='slave',
+MASTER_PASSWORD='123456',
+# 主节点当前logbin文件
+MASTER_LOG_FILE='mysqlbin.000001',
+# logbin文件的偏移值
+MASTER_LOG_POS=682;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>开始复制</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>start slave;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>查看连接状态</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>show slave status \G;
+# 下面两个同时为yes,表示成功
+ -----------------------------------
+ Slave_IO_Running: Yes
+ Slave_SQL_Running: Yes
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>连接主机失败时,重试，也可以用以下命令提升slave为主节点</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>stop slave;
+reset master;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="配置多个主节点"><a href="#配置多个主节点" class="header-anchor">#</a> 配置多个主节点</h3> <p>只要开启了binlog功能的mysql服务器就支持同步数据,支持数据同步就支持做为主节点.</p> <p>所以我们配置多个开启binlog的mysql服务器,然后设置互为主从模式就能实现多个主节点共存.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[mysqld_multi]
+mysqld=/usr/local/mysql/bin/mysqld_safe
+[mysqld1]
+port=3306
+user=root
+basedir	= /usr/local/mysql
+datadir=/mysql/3306/data
+pid-file = /mysql/3306/mysql.pid
+socket=/mysql/3306/mysql.sock
+log_error=/mysql/3306/error.log
+server-id=1
+# 自增列从2开始
+auto_increment_offset = 1
+# 每次递增的步长
+auto_increment_increment = 2
+log-slave-updates = true 
+relay-log=mysql-relay
+log-bin=/mysql/3306/mysqlbin
+binlog-ignore-db=mysql 
+binlog-do-db=test
+binlog_format=mixed
+binlog_cache_size=4M
+[mysqld2]
+port=3307
+user=root
+basedir	= /usr/local/mysql
+datadir=/mysql/3307/data
+pid-file = /mysql/3307/mysql.pid
+socket=/mysql/3307/mysql.sock
+log_error=/mysql/3307/error.log
+server-id=2
+auto_increment_offset = 2
+auto_increment_increment = 2
+log-slave-updates = true 
+relay-log=mysql-relay
+log-bin=/mysql/3307/mysqlbin
+binlog-ignore-db=mysql 
+binlog-do-db=test
+binlog_format=mixed
+binlog_cache_size=4M
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><p>这里需要注意的是防止插入过快导致id重复报错,所以设置不同的起始id,步长设置为主节点数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[mysqld1]
+auto_increment_offset = 1
+auto_increment_increment = 2
+relay-log=mysql-relay
+log-slave-updates = true
+[mysqld2]
+auto_increment_offset = 2
+auto_increment_increment = 2
+relay-log=mysql-relay
+log-slave-updates = true 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>相互连接</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mysql:3306&gt; CHANGE MASTER TO MASTER_HOST='127.0.0.1',
+            MASTER_PORT=3307,
+            MASTER_USER='slave',
+            MASTER_PASSWORD='123456',
+            MASTER_LOG_FILE='mysqlbin.000001',
+            MASTER_LOG_POS=154;
+mysql:3307&gt; CHANGE MASTER TO MASTER_HOST='127.0.0.1',
+            MASTER_PORT=3306,
+            MASTER_USER='slave',
+            MASTER_PASSWORD='123456',
+            MASTER_LOG_FILE='mysqlbin.000001',
+            MASTER_LOG_POS=154;
+mysql:3306&gt; start slave;
+mysql:3307&gt; start slave;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>这就是配置多主的所有步骤.</p> <p>多主多从虽然能增加mysql的连接数，但是数据会始终同步到一张表中，对插入速度并不会有任何提高，而且还会导致每次插入id都递增2而造成id不连续，浪费id空间。</p> <h3 id="读写分离"><a href="#读写分离" class="header-anchor">#</a> 读写分离</h3> <h4 id="读写分离的三种方式"><a href="#读写分离的三种方式" class="header-anchor">#</a> 读写分离的三种方式</h4> <ol><li><p>通过用户权限实现（推荐）</p> <p>分别在主/从服务上创建读/写账号：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code></code></pre> <div class="line-numbers-wrapper"></div></div></li></ol> <p>GRANT Select ON <em>.</em> TO 'reader'@'%'  IDENTIFIED BY &quot;123456&quot;;
+GRANT Select,Alter,Create,INDEX,Insert,Delete,Update ON <em>.</em> TO 'writer'@'%'  IDENTIFIED BY &quot;123456&quot;;
+```</p> <div class="language- extra-class"><pre><code>使用不同的账号连接数据库就实现了读写分离。
+</code></pre></div><ol start="2"><li><p>通过配置文件（不推荐）</p> <p>只有确认某个主机永远不会执行写操作时才使用配置文件设置为只读</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[mysqld]
+read_only=1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>通过sql命令（配合第一种方式使用）</p> <p>该命令需要超级管理员才有权限执行，在自动切换主从时有用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>set global read_only=1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ol> <h2 id="故障恢复"><a href="#故障恢复" class="header-anchor">#</a> 故障恢复</h2> <ol><li><p>如果master宕机后恢复</p> <p>对新的master节点加全库只读锁，阻止所有写入操作，并计下master节点当前得binlog信息，然后备份数据并恢复到宕机得节点中，恢复完成后让宕机得节点作为slave加入当前master节点。</p></li> <li><p>slave节点宕机后恢复</p> <p>通常只需要重启slave节点就行，无需其它操作</p></li></ol></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2019-06-05
+    </span> <span class="update-date" data-v-4e23451f>
+      最后修改 : 2020-05-05
+    </span></section> <section class="post-links" data-v-4e23451f><a href="/posts/2019/06/04/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE.html" class="post-link" data-v-4e23451f>
+      上一篇 : MySQL常用配置
+    </a> <a href="/posts/2019/08/19/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" class="post-link" data-v-4e23451f>
+      下一篇 : adb常用命令
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-6e91a59a><div class="info-card main-div" data-v-23d90c50 data-v-6e91a59a><div class="info-card-header" data-v-23d90c50><img src="/logo.jpg" alt="Net_win(guodf)" class="info-avatar" data-v-23d90c50></div> <div class="info-card-body" data-v-23d90c50><section class="info-nickname" data-v-23d90c50>
+      Net_win(guodf)
+    </section> <!----> <section class="info-contact" data-v-23d90c50><!----> <!----> <!----></section></div> <div class="info-card-footer" data-v-23d90c50><section class="info-sns clearfix" data-v-23d90c50><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-23d90c50><span title="GitHub: guodf" class="sns-icon" data-v-23d90c50 data-v-23d90c50><svg class="icon" style="font-size:1.5em;" data-v-23d90c50 data-v-23d90c50><title data-v-23d90c50 data-v-23d90c50>GitHub: guodf</title><use xlink:href="#icon-github" data-v-23d90c50 data-v-23d90c50></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-6e91a59a><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>文章目录</span> <div class="post-nav-toc"><ul><li><a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#创建master">创建master</a><ul><li><a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#创建slave节点">创建slave节点</a></li><li><a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#配置多个主节点">配置多个主节点</a></li><li><a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#读写分离">读写分离</a></li></ul></li><li><a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#故障恢复">故障恢复</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2019/06/05/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.html#post-comments">
+      评论
+    </a></div></div></aside></div> <div style="display:flex;align-items:center;border-top:solid 1px #eaecef;"><div style="width:150px;"></div> <div id="other" style="z-index:100;"><a href="https://www.upyun.com/" target="_blank"><img src="/upyun.png" style="width:63px;height:60px;"></a></div> <footer class="footer" style="flex:1;margin-left:-100px;" data-v-f018ab8c><p class="footer-sns-links" data-v-f018ab8c><a href="https://github.com/guodf" target="_blank" class="sns-link" data-v-f018ab8c><span title="GitHub: guodf" class="sns-icon" data-v-f018ab8c data-v-f018ab8c><svg class="icon" style="font-size:25px;" data-v-f018ab8c data-v-f018ab8c><title data-v-f018ab8c data-v-f018ab8c>GitHub: guodf</title><use xlink:href="#icon-github" data-v-f018ab8c data-v-f018ab8c></use></svg></span></a></p> <p class="footer-text" data-v-f018ab8c><span data-v-f018ab8c>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-f018ab8c>
+      VuePress
+    </a> <span data-v-f018ab8c> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-f018ab8c>
+        meteorlxy
+      </a></p> <!----></footer></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.b9dbe4e1.js" defer></script><script src="/assets/js/7.e02e014f.js" defer></script><script src="/assets/js/48.fa0d1a0f.js" defer></script>
+  </body>
+</html>
